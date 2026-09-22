@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kavach | Cybersecurity Services in Bhavnagar, Gujarat</title>
+  <meta name="description" content="Kavach provides practical cybersecurity for websites, Wi-Fi networks, systems and sensitive business data in Bhavnagar, Gujarat, India.">
+  
+  <!-- Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#05070A',
+            charcoal: '#0A0F14',
+            panel: '#0D1117',
+            emeraldaccent: '#00FF9D',
+            cyanaccent: '#00E5FF',
+            alertred: '#FF3366',
+          },
+          fontFamily: {
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS for Cyber Aesthetics, Glows, and Animations -->
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #05070A;
+      color: #F8FAFC;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Subtle grid overlay */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+    }
+
+    /* Cyber Card & Glows */
+    .cyber-card {
+      background: rgba(13, 17, 23, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cyber-card:hover {
+      border-color: rgba(0, 255, 157, 0.4);
+      box-shadow: 0 0 25px rgba(0, 255, 157, 0.08);
+    }
+
+    .cyber-card-cyan:hover {
+      border-color: rgba(0, 229, 255, 0.4);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.08);
+    }
+
+    /* Scanline overlay for hero/sections */
+    .scanline-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 255, 157, 0.03) 50%,
+        rgba(0, 255, 157, 0.03)
+      );
+      background-size: 100% 4px;
+    }
+
+    /* Pulse glow buttons */
+    .btn-emerald {
+      background: #00FF9D;
+      color: #05070A;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-emerald:hover {
+      background: #33FFB3;
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-cyan {
+      border: 1px solid rgba(0, 229, 255, 0.5);
+      color: #00E5FF;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-cyan:hover {
+      background: rgba(0, 229, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05070A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00FF9D;
+    }
+
+    /* Toast animation */
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-toast {
+      animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-emeraldaccent selection:text-obsidian relative">
+
+  <!-- Interactive Particle / Neural Net Network Canvas Background -->
+  <canvas id="cyberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
+
+  <!-- Ambient radial glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emeraldaccent/5 blur-[140px] pointer-events-none z-0 rounded-full"></div>
+  <div class="fixed bottom-0 right-10 w-[500px] h-[500px] bg-cyanaccent/5 blur-[160px] pointer-events-none z-0 rounded-full"></div>
+
+  <!-- Sticky Navigation -->
+  <header id="stickyNav" class="sticky top-0 z-50 transition-all duration-300 bg-obsidian/75 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo K -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-lg bg-charcoal border border-emeraldaccent/40 flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(0,255,157,0.15)] group-hover:border-emeraldaccent transition-colors">
+          <!-- Custom K Shield SVG -->
+          <svg class="w-6 h-6 text-emeraldaccent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L4 6v6c0 5.25 3.75 10.74 8 12 4.25-1.26 8-6.75 8-12V6l-8-4z" stroke-opacity="0.4"/>
+            <path d="M9 8v8M15 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="absolute inset-0 bg-gradient-to-tr from-emeraldaccent/10 to-transparent"></div>
+        </div>
+        <div>
+          <span class="font-heading text-xl font-bold tracking-tight text-white block leading-none">KAVACH</span>
+          <span class="font-mono-code text-[10px] tracking-widest text-emeraldaccent block mt-1 uppercase">Cybersecurity</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#services" class="hover:text-emeraldaccent transition-colors">Services</a>
+        <a href="#solutions" class="hover:text-emeraldaccent transition-colors">Solutions</a>
+        <a href="#pricing" class="hover:text-emeraldaccent transition-colors">Pricing</a>
+        <a href="#why-kavach" class="hover:text-emeraldaccent transition-colors">Why Kavach</a>
+        <a href="#how-it-works" class="hover:text-emeraldaccent transition-colors">Process</a>
+        <a href="#about" class="hover:text-emeraldaccent transition-colors">About</a>
+        <a href="#faq" class="hover:text-emeraldaccent transition-colors">FAQ</a>
+        <a href="#contact" class="hover:text-emeraldaccent transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="openInquiryModal('General Security Check')" class="btn-emerald px-4 py-2.5 rounded-lg text-sm flex items-center gap-2">
+          <span>Get Security Check</span>
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-obsidian/95 backdrop-blur-2xl px-4 py-6 space-y-4">
+      <a href="#services" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Services</a>
+      <a href="#solutions" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Solutions</a>
+      <a href="#pricing" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Pricing</a>
+      <a href="#why-kavach" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Why Kavach</a>
+      <a href="#how-it-works" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Process</a>
+      <a href="#about" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">About</a>
+      <a href="#faq" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">FAQ</a>
+      <a href="#contact" class="block text-base font-medium text-slate-200 hover:text-emeraldaccent">Contact</a>
+      <button onclick="openInquiryModal('General Security Check')" class="w-full btn-emerald py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+        <span>Get Security Check</span>
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative z-10 pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Copy -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emeraldaccent/10 border border-emeraldaccent/30 text-emeraldaccent text-xs font-mono-code">
+          <span class="w-2 h-2 rounded-full bg-emeraldaccent animate-pulse"></span>
+          <span>CSaaS • Bhavnagar, Gujarat, India</span>
+        </div>
+
+        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
+          Security That Protects What Your Business Depends On.
+        </h1>
+
+        <p class="text-lg text-slate-400 leading-relaxed max-w-xl">
+          Practical cybersecurity for websites, Wi-Fi networks, systems and sensitive business data.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#contact" class="btn-emerald px-6 py-3.5 rounded-xl text-sm font-semibold flex items-center gap-2">
+            <span>Get a Security Check</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#services" class="btn-outline-cyan px-6 py-3.5 rounded-xl text-sm font-semibold flex items-center gap-2">
+            <span>Explore Services</span>
+          </a>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center gap-6 text-xs text-slate-400 font-mono-code">
+          <div class="flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emeraldaccent"></i>
+            <span>Bhavnagar, Gujarat</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-cyanaccent"></i>
+            <span>Authorized Assessment Only</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual: Signature Interactive Kavach Security Grid -->
+      <div class="lg:col-span-6 relative">
+        <div class="cyber-card rounded-2xl p-6 sm:p-8 relative overflow-hidden border border-emeraldaccent/20">
+          <!-- Top telemetry bar -->
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 font-mono-code text-xs text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emeraldaccent"></span>
+              <span class="text-emeraldaccent">KAVACH_CORE // NODE_STATUS</span>
+            </div>
+            <span id="gridLiveStatus" class="text-cyanaccent">SCAN: ACTIVE</span>
+          </div>
+
+          <!-- Central Interactive Grid Visual Area -->
+          <div class="relative h-[340px] sm:h-[380px] flex items-center justify-center select-none">
+            <!-- Background SVG scanning circular rings -->
+            <svg class="absolute inset-0 w-full h-full text-emeraldaccent/15" viewBox="0 0 400 400">
+              <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" stroke-dasharray="4 8" stroke-width="1"/>
+              <circle cx="200" cy="200" r="90" fill="none" stroke="currentColor" stroke-dasharray="2 6" stroke-width="1"/>
+              <!-- Animated connecting vectors -->
+              <line x1="200" y1="200" x2="200" y2="60" stroke="#00FF9D" stroke-width="1.5" stroke-dasharray="4 4" class="animate-pulse"/>
+              <line x1="200" y1="200" x2="330" y2="130" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="200" y1="200" x2="310" y2="280" stroke="#00FF9D" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="200" y1="200" x2="90" y2="280" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <line x1="200" y1="200" x2="70" y2="130" stroke="#00FF9D" stroke-width="1.5" stroke-dasharray="4 4"/>
+            </svg>
+
+            <!-- Center Core Kavach Shield Node -->
+            <div class="relative z-20 w-24 h-24 rounded-2xl bg-charcoal border-2 border-emeraldaccent flex flex-col items-center justify-center shadow-[0_0_35px_rgba(0,255,157,0.3)]">
+              <i data-lucide="shield" class="w-9 h-9 text-emeraldaccent"></i>
+              <span class="font-heading font-bold text-[11px] text-white tracking-wider mt-1">KAVACH</span>
+            </div>
+
+            <!-- Connected Nodes (WEB, WI-FI, DATA, DEVICES, USERS) -->
+            <!-- 1. WEB (Top Center) -->
+            <div data-node="WEB" class="grid-node-card cursor-pointer group absolute top-4 left-1/2 -translate-x-1/2 bg-charcoal/90 border border-emeraldaccent/40 rounded-xl px-4 py-2.5 flex items-center gap-2.5 hover:border-emeraldaccent transition-all shadow-lg">
+              <i data-lucide="globe" class="w-4 h-4 text-emeraldaccent"></i>
+              <span class="font-mono-code text-xs font-semibold text-white">WEB</span>
+            </div>
+
+            <!-- 2. WI-FI (Top Right) -->
+            <div data-node="WI-FI" class="grid-node-card cursor-pointer group absolute top-16 right-4 sm:right-6 bg-charcoal/90 border border-cyanaccent/40 rounded-xl px-4 py-2.5 flex items-center gap-2.5 hover:border-cyanaccent transition-all shadow-lg">
+              <i data-lucide="wifi" class="w-4 h-4 text-cyanaccent"></i>
+              <span class="font-mono-code text-xs font-semibold text-white">WI-FI</span>
+            </div>
+
+            <!-- 3. DATA (Bottom Right) -->
+            <div data-node="DATA" class="grid-node-card cursor-pointer group absolute bottom-12 right-6 bg-charcoal/90 border border-emeraldaccent/40 rounded-xl px-4 py-2.5 flex items-center gap-2.5 hover:border-emeraldaccent transition-all shadow-lg">
+              <i data-lucide="database" class="w-4 h-4 text-emeraldaccent"></i>
+              <span class="font-mono-code text-xs font-semibold text-white">DATA</span>
+            </div>
+
+            <!-- 4. DEVICES (Bottom Left) -->
+            <div data-node="DEVICES" class="grid-node-card cursor-pointer group absolute bottom-12 left-6 bg-charcoal/90 border border-cyanaccent/40 rounded-xl px-4 py-2.5 flex items-center gap-2.5 hover:border-cyanaccent transition-all shadow-lg">
+              <i data-lucide="monitor" class="w-4 h-4 text-cyanaccent"></i>
+              <span class="font-mono-code text-xs font-semibold text-white">DEVICES</span>
+            </div>
+
+            <!-- 5. USERS (Top Left) -->
+            <div data-node="USERS" class="grid-node-card cursor-pointer group absolute top-16 left-4 sm:left-6 bg-charcoal/90 border border-emeraldaccent/40 rounded-xl px-4 py-2.5 flex items-center gap-2.5 hover:border-emeraldaccent transition-all shadow-lg">
+              <i data-lucide="users" class="w-4 h-4 text-emeraldaccent"></i>
+              <span class="font-mono-code text-xs font-semibold text-white">USERS</span>
+            </div>
+          </div>
+
+          <!-- Interactive Node Info Drawer/Panel inside Hero Visual -->
+          <div id="gridNodeInfo" class="mt-4 p-4 rounded-xl bg-obsidian/90 border border-white/10 font-mono-code text-xs transition-all duration-300">
+            <div class="flex items-center justify-between text-emeraldaccent mb-1">
+              <span id="nodeTitleDisplay" class="font-bold">HOVER_OR_CLICK_NODE // SELECT ASSET</span>
+              <span class="text-[10px] text-slate-400">AUTHORIZED_SCOPE</span>
+            </div>
+            <p id="nodeDescDisplay" class="text-slate-300 text-xs">
+              Hover or tap any connected node (WEB, WI-FI, DATA, DEVICES, USERS) to inspect assessment architecture.
+            </p>
+          </div>
+
+          <!-- Bottom Visual UI status strip -->
+          <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-white/10 text-center font-mono-code text-[11px]">
+            <div class="bg-charcoal/60 rounded-lg p-2 border border-white/5">
+              <span class="text-slate-400 block text-[9px] uppercase">WEBSITE</span>
+              <span class="text-emeraldaccent font-semibold">SECURE CHECK</span>
+            </div>
+            <div class="bg-charcoal/60 rounded-lg p-2 border border-white/5">
+              <span class="text-slate-400 block text-[9px] uppercase">NETWORK</span>
+              <span class="text-cyanaccent font-semibold">MONITORING</span>
+            </div>
+            <div class="bg-charcoal/60 rounded-lg p-2 border border-white/5">
+              <span class="text-slate-400 block text-[9px] uppercase">DATA</span>
+              <span class="text-emeraldaccent font-semibold">PROTECTION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE PROBLEM SECTION -->
+  <section class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// RISK REALITY CHECK</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Most businesses don't notice a security problem until it's already a problem.
+        </h2>
+        <p class="text-slate-400 text-base leading-relaxed">
+          Modern organizations depend on websites, Wi-Fi, computers, accounts and digital data every day. A single weak password, vulnerable website, unsafe network or phishing mistake can expose important information. Kavach helps organizations identify security weaknesses before they become expensive problems.
+        </p>
+      </div>
+
+      <!-- 4 Visual Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 01 -->
+        <div class="cyber-card rounded-2xl p-6 relative group">
+          <div class="font-mono-code text-xs text-emeraldaccent/60 mb-3">01</div>
+          <div class="w-12 h-12 rounded-xl bg-emeraldaccent/10 flex items-center justify-center text-emeraldaccent mb-5 group-hover:bg-emeraldaccent group-hover:text-obsidian transition-colors">
+            <i data-lucide="globe-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Website Exposure</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Outdated plugins, exposed admin paths or missing security headers leave digital storefronts vulnerable.
+          </p>
+        </div>
+
+        <!-- 02 -->
+        <div class="cyber-card rounded-2xl p-6 relative group">
+          <div class="font-mono-code text-xs text-cyanaccent/60 mb-3">02</div>
+          <div class="w-12 h-12 rounded-xl bg-cyanaccent/10 flex items-center justify-center text-cyanaccent mb-5 group-hover:bg-cyanaccent group-hover:text-obsidian transition-colors">
+            <i data-lucide="wifi-off" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Unsafe Wi-Fi & Networks</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Default router credentials, shared staff/guest passwords or flat office networks invite unauthorized access.
+          </p>
+        </div>
+
+        <!-- 03 -->
+        <div class="cyber-card rounded-2xl p-6 relative group">
+          <div class="font-mono-code text-xs text-emeraldaccent/60 mb-3">03</div>
+          <div class="w-12 h-12 rounded-xl bg-emeraldaccent/10 flex items-center justify-center text-emeraldaccent mb-5 group-hover:bg-emeraldaccent group-hover:text-obsidian transition-colors">
+            <i data-lucide="key-round" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Data & Account Risks</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Unmanaged admin accounts, unencrypted sensitive files and missing MFA expose organizational records.
+          </p>
+        </div>
+
+        <!-- 04 -->
+        <div class="cyber-card rounded-2xl p-6 relative group">
+          <div class="font-mono-code text-xs text-alertred/60 mb-3">04</div>
+          <div class="w-12 h-12 rounded-xl bg-alertred/10 flex items-center justify-center text-alertred mb-5 group-hover:bg-alertred group-hover:text-obsidian transition-colors">
+            <i data-lucide="phishing" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Phishing & Human Error</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Deceptive emails, fake login portals and social engineering bypass perimeter firewalls through people.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA under problem section -->
+      <div class="mt-12 flex justify-end">
+        <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-emeraldaccent hover:underline">
+          <span>Find Your Weak Points</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT KAVACH DOES -->
+  <section id="services" class="py-20 lg:py-28 relative z-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-cyanaccent uppercase tracking-widest block mb-3">// SERVICE ARCHITECTURE</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          One security partner. Multiple layers of protection.
+        </h2>
+        <p class="text-slate-400 text-base">
+          Kavach provides practical cybersecurity services designed around the real needs of growing organizations.
+        </p>
+      </div>
+
+      <!-- 6 Service Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 01 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">SERVICE 01</span>
+              <i data-lucide="globe" class="w-5 h-5 text-emeraldaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Web Security</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              Security assessment and testing for websites and web applications to identify common weaknesses and configuration issues.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Website security assessment</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Vulnerability identification</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Security configuration review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic web application testing</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Security report</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Remediation guidance</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Web Security Check')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-emeraldaccent hover:text-emeraldaccent transition-colors flex items-center justify-center gap-2">
+            <span>Explore Web Security</span>
+          </button>
+        </div>
+
+        <!-- Service 02 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-cyanaccent">SERVICE 02</span>
+              <i data-lucide="wifi" class="w-5 h-5 text-cyanaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Wi-Fi & Network Security</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              Assess organizational Wi-Fi and network configuration to identify common security weaknesses.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Wi-Fi security assessment</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Router configuration review</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Network exposure checks</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Access control review</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Basic network security recommendations</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Wi-Fi Security Check')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-cyanaccent hover:text-cyanaccent transition-colors flex items-center justify-center gap-2">
+            <span>Check Wi-Fi Security</span>
+          </button>
+        </div>
+
+        <!-- Service 03 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">SERVICE 03</span>
+              <i data-lucide="database" class="w-5 h-5 text-emeraldaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Data Security</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              Help organizations understand how sensitive information is stored, accessed and protected.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Data handling review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Access control review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Account security</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Backup/security recommendations</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic data protection practices</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Data Security Check')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-emeraldaccent hover:text-emeraldaccent transition-colors flex items-center justify-center gap-2">
+            <span>Protect My Data</span>
+          </button>
+        </div>
+
+        <!-- Service 04 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-cyanaccent">SERVICE 04</span>
+              <i data-lucide="users" class="w-5 h-5 text-cyanaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Phishing Awareness</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              Improve employee and student awareness against phishing, suspicious links, fake login pages and social engineering.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Awareness sessions</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Phishing education</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Safe email practices</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Password/security awareness</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Security checklist</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Phishing Awareness')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-cyanaccent hover:text-cyanaccent transition-colors flex items-center justify-center gap-2">
+            <span>Schedule Awareness</span>
+          </button>
+        </div>
+
+        <!-- Service 05 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">SERVICE 05</span>
+              <i data-lucide="shield-check" class="w-5 h-5 text-emeraldaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Security Assessment</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              A broader security health check covering the organization's key digital assets.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Website</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Network</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Wi-Fi</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Accounts</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic security practices</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Risk summary</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Full Security Assessment')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-emeraldaccent hover:text-emeraldaccent transition-colors flex items-center justify-center gap-2">
+            <span>Request Assessment</span>
+          </button>
+        </div>
+
+        <!-- Service 06 -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-cyanaccent">SERVICE 06</span>
+              <i data-lucide="refresh-cw" class="w-5 h-5 text-cyanaccent"></i>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Security Support</h3>
+            <p class="text-slate-400 text-sm mb-5">
+              Ongoing assistance for organizations that want continued cybersecurity guidance.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Periodic security reviews</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Security recommendations</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Basic incident guidance</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Security consultation</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Follow-up assessments</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Annual Support')" class="mt-6 w-full py-2.5 rounded-lg border border-white/15 text-xs font-semibold text-white hover:border-cyanaccent hover:text-cyanaccent transition-colors flex items-center justify-center gap-2">
+            <span>Discuss Support</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE PROTECT -->
+  <section class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// LOCAL-FIRST PARTNER</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Built for organizations that can't afford to ignore security.
+        </h2>
+        <p class="text-slate-400 text-base">
+          Tailored security coverage for Bhavnagar's digital businesses, institutions, and civic entities.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-emeraldaccent/10 flex items-center justify-center text-emeraldaccent mb-4">
+            <i data-lucide="store" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Small Businesses</h3>
+          <p class="text-slate-400 text-sm">Protect websites, accounts, Wi-Fi and business data.</p>
+        </div>
+
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyanaccent/10 flex items-center justify-center text-cyanaccent mb-4">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Colleges & Institutes</h3>
+          <p class="text-slate-400 text-sm">Protect digital infrastructure, staff/student information and connected systems.</p>
+        </div>
+
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-emeraldaccent/10 flex items-center justify-center text-emeraldaccent mb-4">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Schools</h3>
+          <p class="text-slate-400 text-sm">Improve basic cybersecurity awareness and digital safety.</p>
+        </div>
+
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyanaccent/10 flex items-center justify-center text-cyanaccent mb-4">
+            <i data-lucide="briefcase" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Professional Organizations</h3>
+          <p class="text-slate-400 text-sm">Strengthen everyday security practices and reduce avoidable risks.</p>
+        </div>
+
+        <div class="cyber-card rounded-2xl p-6 md:col-span-2 lg:col-span-2">
+          <div class="w-10 h-10 rounded-lg bg-emeraldaccent/10 flex items-center justify-center text-emeraldaccent mb-4">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Local Businesses in Bhavnagar, Gujarat</h3>
+          <p class="text-slate-400 text-sm">
+            Practical cybersecurity without enterprise-level complexity. We engage directly, assess cleanly, and speak plain language.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="py-20 lg:py-28 relative z-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-cyanaccent uppercase tracking-widest block mb-3">// INDICATIVE PRICING MENU</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Transparent, accessible security investment.
+        </h2>
+        <p class="text-slate-400 text-base">
+          Pricing designed for local Bhavnagar budgets while maintaining proper verification scope.
+        </p>
+      </div>
+
+      <!-- Pricing Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 1. Web Security Check -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">WEB SECURITY</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-emeraldaccent/10 text-emeraldaccent">One-Time</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Web Security Check</h3>
+            <p class="text-xs text-slate-400 mb-5">For a basic website security assessment.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">Starting from ₹1,499</div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Website security checks</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Common vulnerability review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic configuration review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Security findings report</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Recommendations</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Web Security Check (₹1,499)')" class="mt-8 w-full btn-emerald py-3 rounded-xl text-xs font-semibold">
+            Request Web Check
+          </button>
+        </div>
+
+        <!-- 2. Wi-Fi Security Check -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-cyanaccent">WI-FI & NETWORK</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-cyanaccent/10 text-cyanaccent">One-Time</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Wi-Fi Security Check</h3>
+            <p class="text-xs text-slate-400 mb-5">For basic Wi-Fi/network security assessment.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">Starting from ₹999</div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Wi-Fi configuration review</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Router security review</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Network exposure checks</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Security recommendations</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Wi-Fi Security Check (₹999)')" class="mt-8 w-full btn-outline-cyan py-3 rounded-xl text-xs font-semibold">
+            Check Wi-Fi Security
+          </button>
+        </div>
+
+        <!-- 3. Web + Wi-Fi Combo -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between cyber-card-cyan">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">COMBO PACK</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-emeraldaccent/20 text-emeraldaccent font-bold">Popular</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Web + Wi-Fi Combo</h3>
+            <p class="text-xs text-slate-400 mb-5">Combined foundational edge assessment.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">Starting from ₹1,999</div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Website security assessment</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Wi-Fi security assessment</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Combined findings</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Security recommendations</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Web + Wi-Fi Combo (₹1,999)')" class="mt-8 w-full btn-emerald py-3 rounded-xl text-xs font-semibold">
+            Get Combined Check
+          </button>
+        </div>
+
+        <!-- 4. Data Security Check -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">DATA PROTECTION</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-emeraldaccent/10 text-emeraldaccent">One-Time</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Data Security Check</h3>
+            <p class="text-xs text-slate-400 mb-5">Sensitive information & backup review.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">Starting from ₹1,499</div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic data handling review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Account/access review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Backup/security recommendations</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Risk summary</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Data Security Check (₹1,499)')" class="mt-8 w-full py-2.5 rounded-xl border border-white/15 text-xs font-semibold text-white hover:border-emeraldaccent hover:text-emeraldaccent transition-colors">
+            Protect My Data
+          </button>
+        </div>
+
+        <!-- 5. Full Security Assessment -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-cyanaccent">FULL AUDIT</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-cyanaccent/10 text-cyanaccent">Comprehensive</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Full Security Assessment</h3>
+            <p class="text-xs text-slate-400 mb-5">Broad health check for multi-asset orgs.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">Starting from ₹3,999</div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Website + Wi-Fi/network</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Data security + account security</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Basic phishing awareness</li>
+              <li class="flex items-center gap-2"><span class="text-cyanaccent">✓</span> Consolidated security report</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Full Security Assessment (₹3,999)')" class="mt-8 w-full py-2.5 rounded-xl border border-white/15 text-xs font-semibold text-white hover:border-cyanaccent hover:text-cyanaccent transition-colors">
+            Request Assessment
+          </button>
+        </div>
+
+        <!-- 6. Annual Security Support -->
+        <div class="cyber-card rounded-2xl p-6 flex flex-col justify-between border-emeraldaccent/50 bg-gradient-to-b from-charcoal to-obsidian">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono-code text-xs text-emeraldaccent">PARTNERSHIP</span>
+              <span class="text-xs font-mono-code px-2.5 py-1 rounded-full bg-emeraldaccent/20 text-emeraldaccent">Annual</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white mb-1">Annual Security Support</h3>
+            <p class="text-xs text-slate-400 mb-5">Continuous periodic protection & guidance.</p>
+            <div class="text-3xl font-heading font-bold text-white mb-6">₹9,999 <span class="text-sm font-normal text-slate-400">/year</span></div>
+            <ul class="space-y-2.5 text-xs text-slate-300 font-mono-code border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Periodic security reviews</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Website & Wi-Fi/network review</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Security guidance & follow-up support</li>
+              <li class="flex items-center gap-2"><span class="text-emeraldaccent">✓</span> Basic incident guidance</li>
+            </ul>
+          </div>
+          <button onclick="openInquiryModal('Annual Security Support (₹9,999/yr)')" class="mt-8 w-full btn-emerald py-3 rounded-xl text-xs font-semibold">
+            Discuss Annual Support
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Disclaimer -->
+      <div class="mt-8 text-center text-xs text-slate-400 font-mono-code">
+        * Final pricing depends on organization size, scope, number of assets and assessment requirements. Checkout is inquiry/consultation-driven.
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KAVACH -->
+  <section id="why-kavach" class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// WHY KAVACH</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Cybersecurity shouldn't be complicated.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="font-mono-code text-xs text-emeraldaccent mb-3">01</div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Practical</h3>
+          <p class="text-slate-400 text-sm">Security recommendations that organizations can actually implement.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="font-mono-code text-xs text-cyanaccent mb-3">02</div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Affordable</h3>
+          <p class="text-slate-400 text-sm">Designed with small businesses and local organizations in mind.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="font-mono-code text-xs text-emeraldaccent mb-3">03</div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Clear Reports</h3>
+          <p class="text-slate-400 text-sm">No confusing technical language. Findings explained clearly.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <div class="font-mono-code text-xs text-cyanaccent mb-3">04</div>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Local Focus</h3>
+          <p class="text-slate-400 text-sm">Focused on understanding the needs of organizations in Bhavnagar and Gujarat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS TIMELINE -->
+  <section id="how-it-works" class="py-20 lg:py-28 relative z-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-cyanaccent uppercase tracking-widest block mb-3">// ASSESSMENT METHODOLOGY</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          How It Works
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <!-- Step 1 -->
+        <div class="cyber-card rounded-2xl p-6 relative">
+          <div class="font-mono-code text-xs text-emeraldaccent mb-3">01 — Understand</div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Understand Scope</h3>
+          <p class="text-slate-400 text-sm">We understand your website, network, systems and security requirements.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="cyber-card rounded-2xl p-6 relative">
+          <div class="font-mono-code text-xs text-cyanaccent mb-3">02 — Assess</div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Authorized Check</h3>
+          <p class="text-slate-400 text-sm">We perform authorized security checks and identify weaknesses.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="cyber-card rounded-2xl p-6 relative">
+          <div class="font-mono-code text-xs text-emeraldaccent mb-3">03 — Report</div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Clear Report</h3>
+          <p class="text-slate-400 text-sm">You receive clear findings, risks and recommendations.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="cyber-card rounded-2xl p-6 relative">
+          <div class="font-mono-code text-xs text-cyanaccent mb-3">04 — Improve</div>
+          <h3 class="font-heading text-xl font-bold text-white mb-2">Posture Upgrade</h3>
+          <p class="text-slate-400 text-sm">We help prioritize fixes and improve your security posture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY PHILOSOPHY -->
+  <section class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// SECURITY PHILOSOPHY</span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-10">
+        "Find the weakness before someone else does."
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+        <div class="cyber-card px-6 py-4 rounded-xl text-xs font-mono-code text-white border-emeraldaccent/40">1. DISCOVER</div>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-emeraldaccent hidden md:block"></i>
+        <div class="cyber-card px-6 py-4 rounded-xl text-xs font-mono-code text-white border-cyanaccent/40">2. ASSESS</div>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-cyanaccent hidden md:block"></i>
+        <div class="cyber-card px-6 py-4 rounded-xl text-xs font-mono-code text-white border-emeraldaccent/40">3. PRIORITIZE</div>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-emeraldaccent hidden md:block"></i>
+        <div class="cyber-card px-6 py-4 rounded-xl text-xs font-mono-code text-white border-cyanaccent/40">4. PROTECT</div>
+        <i data-lucide="arrow-right" class="w-4 h-4 text-cyanaccent hidden md:block"></i>
+        <div class="cyber-card px-6 py-4 rounded-xl text-xs font-mono-code text-white border-emeraldaccent/40">5. IMPROVE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES TABS -->
+  <section id="solutions" class="py-20 lg:py-28 relative z-10 border-t border-white/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// SECTOR APPLICATION</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Tailored security focus across organizations
+        </h2>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <button onclick="switchTab('business')" class="use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-emeraldaccent text-obsidian transition-all" data-tab="business">BUSINESS</button>
+        <button onclick="switchTab('college')" class="use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-emeraldaccent transition-all" data-tab="college">COLLEGE</button>
+        <button onclick="switchTab('school')" class="use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-emeraldaccent transition-all" data-tab="school">SCHOOL</button>
+        <button onclick="switchTab('institute')" class="use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-emeraldaccent transition-all" data-tab="institute">INSTITUTE</button>
+      </div>
+
+      <!-- Tab Content Cards -->
+      <div class="cyber-card rounded-2xl p-8 max-w-3xl mx-auto">
+        <div id="useCaseContent" class="space-y-4">
+          <!-- Dynamically populated or rendered -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY CHECK CTA -->
+  <section class="py-16 relative z-10 border-t border-white/10 bg-gradient-to-r from-emeraldaccent/10 via-obsidian to-cyanaccent/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white">
+        Know where you're exposed.
+      </h2>
+      <p class="text-slate-300 max-w-xl mx-auto text-base">
+        Start with a simple security conversation. Tell us what you need to protect and we'll help identify the right assessment.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <button onclick="openInquiryModal('General Security Check')" class="btn-emerald px-6 py-3.5 rounded-xl text-sm font-semibold">
+          Request a Security Check
+        </button>
+        <a href="#contact" class="btn-outline-cyan px-6 py-3.5 rounded-xl text-sm font-semibold">
+          Talk to Kavach
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 lg:py-28 relative z-10 border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="cyber-card rounded-2xl p-8 sm:p-12 space-y-6">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block">// ABOUT KAVACH</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          Built around one simple idea: protection should be accessible.
+        </h2>
+        <p class="text-slate-300 leading-relaxed">
+          Kavach is a cybersecurity-focused venture based in Bhavnagar, Gujarat, working to make practical security services more accessible to small businesses, educational institutions and growing organizations.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs font-mono-code text-slate-300">
+          <div>✓ Cybersecurity-focused</div>
+          <div>✓ Local-first approach</div>
+          <div>✓ Practical assessments</div>
+          <div>✓ Clear reporting</div>
+          <div>✓ Security awareness</div>
+          <div>✓ Long-term protection mindset</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / CREDIBILITY PRINCIPLES -->
+  <section class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-cyanaccent uppercase tracking-widest block mb-3">// INTEGRITY FIRST</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Built on security principles
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="cyber-card rounded-2xl p-6">
+          <i data-lucide="shield-check" class="w-6 h-6 text-emeraldaccent mb-3"></i>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Authorized Testing</h3>
+          <p class="text-slate-400 text-sm">All security testing is performed only with proper authorization.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <i data-lucide="lock" class="w-6 h-6 text-cyanaccent mb-3"></i>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Responsible Disclosure</h3>
+          <p class="text-slate-400 text-sm">Security findings are handled responsibly and communicated clearly.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <i data-lucide="eye-off" class="w-6 h-6 text-emeraldaccent mb-3"></i>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Privacy First</h3>
+          <p class="text-slate-400 text-sm">Client information and security findings should be treated confidentially.</p>
+        </div>
+        <div class="cyber-card rounded-2xl p-6">
+          <i data-lucide="file-text" class="w-6 h-6 text-cyanaccent mb-3"></i>
+          <h3 class="font-heading text-lg font-bold text-white mb-2">Clear Reporting</h3>
+          <p class="text-slate-400 text-sm">Technical findings are converted into understandable actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section id="faq" class="py-20 lg:py-28 relative z-10 border-t border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// FAQ</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class="space-y-4" id="faqAccordion">
+        <!-- FAQ 1 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>What does Kavach do?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Kavach assesses and helps harden websites, Wi-Fi networks, access accounts, and digital data hygiene for organizations in Bhavnagar, Gujarat.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Who can use Kavach?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Small businesses, educational institutes, schools, and growing digital organizations.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Do you provide website security testing?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Yes, basic website security assessments and scoped configuration reviews starting from ₹1,499.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Can you check Wi-Fi security?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Yes, router encryption, credential check, and guest network exposure reviews starting from ₹999.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Do you provide annual security support?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Yes, periodic structured reviews and guidance starting from ₹9,999/year.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Is pricing fixed?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Indicative pricing is listed above; scope variations are quoted transparently.
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>How does a security assessment work?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Understand scope → authorized check → clear prioritized report → follow-up guidance.
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="cyber-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-white">
+            <span>Will you provide a security report?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300">
+            Yes, structured findings with actionable recommendations.
+          </div>
+        </div>
+
+        <!-- FAQ 9: Authorized only testing answer -->
+        <div class="cyber-card rounded-2xl overflow-hidden border-emeraldaccent/40">
+          <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-heading font-semibold text-emeraldaccent">
+            <span>Do you test systems without permission?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-emeraldaccent transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-200">
+            No. Kavach security testing must always be authorized by the system or asset owner.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-20 lg:py-28 relative z-10 border-t border-white/10 bg-obsidian/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono-code text-xs text-emeraldaccent uppercase tracking-widest block mb-3">// INQUIRY DESK</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+          Let's secure what matters.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Contact Form -->
+        <div class="lg:col-span-8 cyber-card rounded-2xl p-6 sm:p-8">
+          <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">NAME *</label>
+                <input type="text" name="name" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+              </div>
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">ORGANIZATION *</label>
+                <input type="text" name="organization" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">EMAIL *</label>
+                <input type="email" name="email" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+              </div>
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">PHONE / WHATSAPP *</label>
+                <input type="tel" name="phone" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">ORGANIZATION TYPE</label>
+                <select name="orgType" class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+                  <option>Small Business / Shop</option>
+                  <option>College / Institute</option>
+                  <option>School</option>
+                  <option>Professional Firm</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-mono-code text-slate-400 mb-1.5">SERVICE REQUIRED</label>
+                <select id="contactServiceSelect" name="service" class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent">
+                  <option>Web Security</option>
+                  <option>Wi-Fi Security</option>
+                  <option>Data Security</option>
+                  <option>Phishing Awareness</option>
+                  <option>Full Security Assessment</option>
+                  <option>Annual Support</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono-code text-slate-400 mb-1.5">MESSAGE / DETAILS</label>
+              <textarea name="message" rows="3" class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emeraldaccent" placeholder="Tell us about assets to protect..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full btn-emerald py-3.5 rounded-xl text-sm font-semibold">
+              Request Security Check
+            </button>
+          </form>
+        </div>
+
+        <!-- Coordinates & Log viewer card -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="cyber-card rounded-2xl p-6 space-y-4">
+            <h3 class="font-heading text-lg font-bold text-white">Direct Coordinates</h3>
+            <div class="space-y-3 text-xs font-mono-code text-slate-300">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emeraldaccent"></i>
+                <span>Bhavnagar, Gujarat, India</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="message-square" class="w-4 h-4 text-emeraldaccent"></i>
+                <span>WhatsApp: [Configurable placeholder]</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="mail" class="w-4 h-4 text-emeraldaccent"></i>
+                <span>Email: security@kavach.local</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stored Local Inquiry Log Monitor -->
+          <div class="cyber-card rounded-2xl p-6 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-code text-xs text-cyanaccent font-semibold">LOCAL_STORAGE LOGS</span>
+              <button onclick="clearInquiries()" class="text-[10px] font-mono-code text-slate-400 hover:text-alertred">Clear Log</button>
+            </div>
+            <div id="inquiryLogList" class="space-y-2 max-h-48 overflow-y-auto text-[11px] font-mono-code text-slate-400">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 relative z-10 border-t border-white/10 bg-obsidian">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-charcoal border border-emeraldaccent/40 flex items-center justify-center">
+            <svg class="w-5 h-5 text-emeraldaccent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L4 6v6c0 5.25 3.75 10.74 8 12 4.25-1.26 8-6.75 8-12V6l-8-4z"/>
+            </svg>
+          </div>
+          <span class="font-heading text-lg font-bold text-white">KAVACH</span>
+        </div>
+        <p class="text-xs text-slate-400 max-w-sm">
+          Practical cybersecurity for organizations that depend on technology.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-mono-code text-xs text-white uppercase tracking-wider mb-4">Navigation</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#services" class="hover:text-emeraldaccent">Services</a></li>
+          <li><a href="#solutions" class="hover:text-emeraldaccent">Solutions</a></li>
+          <li><a href="#pricing" class="hover:text-emeraldaccent">Pricing</a></li>
+          <li><a href="#about" class="hover:text-emeraldaccent">About</a></li>
+          <li><a href="#faq" class="hover:text-emeraldaccent">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-emeraldaccent">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-mono-code text-xs text-white uppercase tracking-wider mb-4">Legal</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#" class="hover:text-emeraldaccent">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-emeraldaccent">Terms</a></li>
+          <li><a href="#" class="hover:text-emeraldaccent">Responsible Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-mono-code">
+      <div>© 2026 Kavach. All rights reserved.</div>
+      <div class="mt-2 sm:mt-0">Cybersecurity services | Bhavnagar, Gujarat, India</div>
+    </div>
+  </footer>
+
+  <!-- MODAL / INQUIRY DRAWER -->
+  <div id="inquiryModal" class="fixed inset-0 z-50 hidden bg-obsidian/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="cyber-card rounded-2xl w-full max-w-md p-6 relative border-emeraldaccent/40">
+      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <h3 id="modalTitle" class="font-heading text-xl font-bold text-white mb-2">Request Service Scope</h3>
+      <p id="modalSubtitle" class="text-xs text-slate-400 mb-6 font-mono-code">Service inquiry for scoped verification.</p>
+
+      <form id="modalInquiryForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <input type="hidden" id="modalServiceName" name="serviceName" value="">
+        <div>
+          <label class="block text-xs font-mono-code text-slate-400 mb-1">NAME *</label>
+          <input type="text" name="mName" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white">
+        </div>
+        <div>
+          <label class="block text-xs font-mono-code text-slate-400 mb-1">ORGANIZATION / COLLEGE / SCHOOL *</label>
+          <input type="text" name="mOrg" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white">
+        </div>
+        <div>
+          <label class="block text-xs font-mono-code text-slate-400 mb-1">PHONE / EMAIL *</label>
+          <input type="text" name="mContact" required class="w-full bg-charcoal border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white">
+        </div>
+        <button type="submit" class="w-full btn-emerald py-3 rounded-xl text-xs font-semibold">
+          Submit Assessment Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2"></div>
+
+  <script>
+    /* Initialize Lucide Icons */
+    lucide.createIcons();
+
+    /* 1. Interactive Neural Net Canvas Background (Dots connecting with lines) */
+    const canvas = document.getElementById('cyberCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const particleCount = Math.floor(window.innerWidth * window.innerHeight / 22000);
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = (Math.random() - 0.5) * 0.6;
+        this.radius = Math.random() * 1.5 + 1;
+        this.isEmerald = Math.random() > 0.5;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.isEmerald ? 'rgba(0, 255, 157, 0.6)' : 'rgba(0, 229, 255, 0.6)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < Math.max(35, Math.min(particleCount, 85)); i++) {
+      particles.push(new Particle());
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        p1 = particles[i];
+        p1.update();
+        p1.draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          p2 = particles[j];
+          let dx = p1.x - p2.x;
+          let dy = p1.y - p2.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(0, 255, 157, ${0.14 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCanvas);
+    }
+    animateCanvas();
+
+    /* 2. Interactive Kavach Security Grid Node Data & Hover/Click Info */
+    const nodeDataMap = {
+      'WEB': {
+        title: 'WEB ASSET ASSESSMENT',
+        desc: 'HTTPS/SSL review, security headers, login exposure check, and basic vulnerability scan (Starting ₹1,499).'
+      },
+      'WI-FI': {
+        title: 'WI-FI & ROUTER SECURITY',
+        desc: 'Encryption mode check, default admin credential audit, and guest isolation guidelines (Starting ₹999).'
+      },
+      'DATA': {
+        title: 'DATA PROTECTION & BACKUP',
+        desc: 'Sensitive data identification, storage permission review, and backup continuity recommendations.'
+      },
+      'DEVICES': {
+        title: 'ENDPOINT & DEVICE CHECK',
+        desc: 'Workstation security baseline, USB/access restrictions, and basic endpoint hardening guidance.'
+      },
+      'USERS': {
+        title: 'USER & PHISHING AWARENESS',
+        desc: 'Staff/student training sessions against fake links, social engineering, and password hygiene.'
+      }
+    };
+
+    document.querySelectorAll('.grid-node-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const key = card.getAttribute('data-node');
+        const info = nodeDataMap[key];
+        if (info) {
+          document.getElementById('nodeTitleDisplay').textContent = info.title;
+          document.getElementById('nodeDescDisplay').textContent = info.desc;
+        }
+      });
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-node');
+        openInquiryModal(`Kavach Grid Node: ${key}`);
+      });
+    });
+
+    /* 3. Use Cases Tabs Data */
+    const useCaseData = {
+      business: {
+        tag: 'SMALL BUSINESS / RETAIL / LOCAL FIRMS',
+        items: [
+          'Website protection against SQLi / XSS exposure',
+          'Wi-Fi separation for guest vs POS/admin terminal',
+          'Staff password policy and 2FA readiness',
+          'Customer & transaction record storage safety',
+          'Phishing email identification workshop'
+        ]
+      },
+      college: {
+        tag: 'HIGHER EDUCATION / COLLEGES',
+        items: [
+          'Campus Wi-Fi segmentation & portal login verification',
+          'Student ERP portal session authorization audit',
+          'Faculty account compromise monitoring',
+          'Research/academic data backup validation',
+          'Annual student cyber safety awareness sessions'
+        ]
+      },
+      school: {
+        tag: 'SCHOOLS / K-12 INSTITUTIONS',
+        items: [
+          'Basic school website & admission portal hardening',
+          'Staff email anti-phishing hygiene',
+          'Parent/student data privacy compliance check',
+          'Computer lab basic security policy guideline',
+          'Cyber safety lecture for middle/high school students'
+        ]
+      },
+      institute: {
+        tag: 'COACHING & COMPUTER INSTITUTES',
+        items: [
+          'Online course portal login & token audit',
+          'Wi-Fi router admin credential hardening',
+          'Student batch dataset backup safety check',
+          'Staff access control separation',
+          'Periodic vulnerability review for student portals'
+        ]
+      }
+    };
+
+    function switchTab(tabKey) {
+      document.querySelectorAll('.use-case-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabKey) {
+          btn.className = 'use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-emeraldaccent text-obsidian transition-all';
+        } else {
+          btn.className = 'use-case-btn px-6 py-2.5 rounded-xl text-xs font-mono-code font-semibold bg-charcoal text-slate-300 border border-white/10 hover:border-emeraldaccent transition-all';
+        }
+      });
+      const data = useCaseData[tabKey];
+      const container = document.getElementById('useCaseContent');
+      let html = `<div class="font-mono-code text-xs text-cyanaccent mb-3">// ${data.tag}</div>`;
+      html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">`;
+      data.items.forEach(item => {
+        html += `<div class="bg-charcoal/80 rounded-xl p-3.5 border border-white/5 flex items-center gap-3 text-sm text-slate-200">
+          <span class="text-emeraldaccent font-mono-code">▸</span>
+          <span>${item}</span>
+        </div>`;
+      });
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+    switchTab('business');
+
+    /* 4. FAQ Accordion */
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('i');
+        const isOpen = !content.classList.contains('hidden');
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = 'rotate(0deg)');
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    /* 5. LocalStorage Inquiry Persistence & Display */
+    function getStoredInquiries() {
+      try {
+        const raw = localStorage.getItem('kavach_inquiries_log');
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveInquiryToStorage(entry) {
+      const logs = getStoredInquiries();
+      logs.unshift(entry);
+      localStorage.setItem('kavach_inquiries_log', JSON.stringify(logs.slice(0, 15)));
+      renderInquiryLog();
+    }
+
+    function renderInquiryLog() {
+      const listEl = document.getElementById('inquiryLogList');
+      if (!listEl) return;
+      const logs = getStoredInquiries();
+      if (logs.length === 0) {
+        listEl.innerHTML = `<div class="text-slate-500 italic">No inquiries logged yet in browser local storage.</div>`;
+        return;
+      }
+      let html = '';
+      logs.forEach(log => {
+        html += `<div class="p-2 rounded-lg bg-charcoal/50 border border-white/5">
+          <div class="text-emeraldaccent font-bold">${log.service}</div>
+          <div class="text-slate-300">${log.name} • ${log.org}</div>
+          <div class="text-[10px] text-slate-500">${log.timestamp}</div>
+        </div>`;
+      });
+      listEl.innerHTML = html;
+    }
+    renderInquiryLog();
+
+    function clearInquiries() {
+      localStorage.removeItem('kavach_inquiries_log');
+      renderInquiryLog();
+      showToast('Local inquiry log cleared.');
+    }
+
+    /* 6. Modal Drawer Logic */
+    function openInquiryModal(serviceName) {
+      document.getElementById('modalServiceName').value = serviceName;
+      document.getElementById('modalSubtitle').textContent = `Scoped assessment request for: ${serviceName}`;
+      document.getElementById('inquiryModal').classList.remove('hidden');
+    }
+
+    function closeInquiryModal() {
+      document.getElementById('inquiryModal').classList.add('hidden');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const entry = {
+        service: formData.get('serviceName'),
+        name: formData.get('mName'),
+        org: formData.get('mOrg'),
+        contact: formData.get('mContact'),
+        timestamp: new Date().toLocaleTimeString()
+      };
+      saveInquiryToStorage(entry);
+      closeInquiryModal();
+      showToast('Assessment scope inquiry logged locally.');
+      form.reset();
+    }
+
+    /* 7. Contact Form Handling */
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const entry = {
+        service: formData.get('service'),
+        name: formData.get('name'),
+        org: formData.get('organization'),
+        contact: formData.get('email') + ' / ' + formData.get('phone'),
+        timestamp: new Date().toLocaleTimeString()
+      };
+      saveInquiryToStorage(entry);
+      showToast('Security check inquiry submitted to Kavach intake desk.');
+      form.reset();
+    }
+
+    /* 8. Toast Notification Utility */
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'animate-toast bg-charcoal border border-emeraldaccent/60 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs font-mono-code';
+      toast.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-emeraldaccent"></span>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    /* 9. Mobile Navigation Toggle */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
